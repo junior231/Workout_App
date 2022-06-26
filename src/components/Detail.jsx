@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack, Button, Typography } from "@mui/material";
+import {  Stack, Button, Typography } from "@mui/material";
 
 import BodyPartImage from "../assets/icons/body-part.png";
 import TargetImage from "../assets/icons/target.png";
@@ -29,20 +29,21 @@ const Detail = ({ exerciseDetail }) => {
     >
       <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
       <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
-        <Typography variant="h3">{name}</Typography>
+        <Typography textTransform="capitalize" variant="h3">{name}</Typography>
         <Typography variant="h6">
           {`Exercises keep you strong. ${name} is one of the best workouts to target your ${target}. It will help you improve your mood and gain energy`}
         </Typography>
-        {extraDetail.map((item) => (
+        {extraDetail?.map((item, index) => (
           <Stack key={item.name} direction="row" gap="24px" alignItems="center">
             <Button
               sx={{
                 background: "#fff2db",
                 borderRadius: "50%",
                 width: "100px",
+                height: '100px'
               }}
             >
-              <img src={item.icon} alt={item.name} />
+              <img src={item.icon} style={{width: '50px', height: '50px'}} alt={bodyPart} />
             </Button>
             <Typography textTransform="capitalize" variant="h5">
               {item.name}
